@@ -26,7 +26,7 @@ impl PaymentContainer {
 
     pub fn process_payment(
         &mut self, amount: i32,
-    ) -> Result<PaymentResult, PaymentResult> {
+    ) -> Result<(), PaymentResult> {
         if self.account.balance >= self.account.limit {
             return Err(PaymentResult::BalanceFull);
         }
@@ -38,12 +38,12 @@ impl PaymentContainer {
             self.account.holder.username, amount, self.account.balance, self.currency
         );
 
-        Ok(PaymentResult::Completed)
+        Ok(())
     }
 
     pub fn withdraw_money(
         &mut self, amount: i32,
-    ) -> Result<WithdrawResult, WithdrawResult> {
+    ) -> Result<(), WithdrawResult> {
         if self.account.balance < amount {
             return Err(WithdrawResult::BalanceInsufficient);
         }
@@ -55,6 +55,6 @@ impl PaymentContainer {
             self.account.holder.username, amount, self.account.balance, self.currency
         );
 
-        Ok(WithdrawResult::Completed)
+        Ok(())
     }
 }

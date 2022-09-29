@@ -24,6 +24,7 @@ pub struct PaymentContainer {
 }
 
 impl PaymentContainer {
+
     pub fn process_payment(
         &mut self, amount: i32,
     ) -> Result<PaymentResult, PaymentResult> {

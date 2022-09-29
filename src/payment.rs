@@ -2,8 +2,7 @@ use crate::{Account};
 
 #[derive(Debug)]
 pub enum PaymentCurrency {
-    USDollar,
-    QRRiyal,
+    QRRiyal
 }
 
 #[derive(Debug)]
@@ -45,7 +44,7 @@ impl PaymentContainer {
     pub fn withdraw_money(
         &mut self, amount: i32,
     ) -> Result<WithdrawResult, WithdrawResult> {
-        if amount < self.account.balance {
+        if self.account.balance < amount {
             return Err(WithdrawResult::BalanceInsufficient);
         }
 

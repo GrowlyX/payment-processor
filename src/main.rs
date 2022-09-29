@@ -18,10 +18,10 @@ fn main() {
 
     let mut paymentContainer = PaymentContainer {
         currency: PaymentCurrency::QRRiyal,
-        account: &mut account
+        account
     };
 
-    while account.balance < 3000 {
+    while &account.balance < &3000 {
         paymentContainer
             .process_payment(500)
             .expect("Wow, so you're literally full bro.");

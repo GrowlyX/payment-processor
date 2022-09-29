@@ -20,7 +20,7 @@ pub enum WithdrawResult {
 
 pub struct PaymentContainer {
     pub currency: PaymentCurrency,
-    pub account: &'static mut Account,
+    pub account: Account
 }
 
 impl PaymentContainer {
